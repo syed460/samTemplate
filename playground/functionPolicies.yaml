@@ -1,0 +1,19 @@
+Resources:
+  CalcFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/app/
+      Handler: calcFunction.js
+      Runtime: nodejs16.x
+      
+      Policies:
+        - Statement:
+            - Sid: EventBridgePutEvent
+              Effect: "Allow"
+              Action:
+                - "event:PutEvents"
+              Resource: "*"
+
+
+
+      
